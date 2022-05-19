@@ -1,3 +1,20 @@
+import pgzrun
+import random
+
+HEIGHT = 800
+WITH = 800
+
+
+ship = Actor("playership1_blue.png")
+ship.x = 50
+ship.y = 100
+
+gem = Actor("gemgreen.png")
+gem.x = random.randint(0 , 800)
+gem.y = 0
+
+pgzrun.go()
+
 def update():
     global score
     gem.y+= 4
