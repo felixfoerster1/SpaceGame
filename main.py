@@ -13,7 +13,6 @@ gem = Actor("gemgreen.png")
 gem.x = random.randint(0 , 800)
 gem.y = 0
 
-pgzrun.go()
 
 def update():
     global score
@@ -28,3 +27,5 @@ def update():
         gem.y=0
         gem.x= random.randint(0,800)
         score+= -20
+
+pgzrun.go()
