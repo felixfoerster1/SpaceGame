@@ -14,6 +14,12 @@ gem.x = random.randint(0 , 800)
 gem.y = 0
 
 
+
+def draw():
+    screen.clear()
+    ship.draw()
+    gem.draw()
+    screen.draw.text(f"score:{score}",(0,0),fontsize=40, color="white")
 def update():
     global score
     gem.y+= 4
