@@ -1,8 +1,14 @@
 import pgzrun
 import random
+import os
 
 HEIGHT = 800
 WIDTH = 800
+
+
+for image in images:
+    if image.startswith('gem'):
+        images.remove(image)
 
 score=0
 ship = Actor("playership1_blue.png")
@@ -27,6 +33,8 @@ def update():
     if keyboard.left:
         ship.x +=-5
     if ship.colliderect(gem):
+        r = random.randint(0, len(images) - 1)
+        ship.image = images[r]
         score+=10
         gem.y=0
         gem.x= random.randint(0,800)
@@ -34,5 +42,6 @@ def update():
         gem.y=0
         gem.x= random.randint(0,800)
         score+= -20
+    
 
 pgzrun.go()
