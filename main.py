@@ -25,6 +25,10 @@ gem3 = Actor("gemyellow.png")
 gem3.x = random.randint(0 , 800)
 gem3.y = 0  
 
+speeditem = Actor("playership2_red")
+speeditem.x = 1000
+speeditem.y = 1000
+
 def draw():
     screen.clear()
     global score
@@ -45,10 +49,16 @@ def update():
     gem1.y+= 4
     gem2.y+= 1
     gem3.y+= 6
-    if keyboard.right:
-        ship.x +=5
-    if keyboard.left:
-        ship.x +=-5
+    if speed == true :
+        if keyboard.right:
+            ship.x +=10
+        if keyboard.left:
+            ship.x +=-10
+    elif speed = false :
+        if keyboard.right:
+            ship.x +=5
+        if keyboard.left:
+            ship.x +=-5
     if keyboard.d:
         ship2.x +=5
     if keyboard.a:
@@ -59,26 +69,28 @@ def update():
         gem1.y=0
         gem1.x= random.randint(0,800)
     if ship2.colliderect(gem1):
-        score+=20
+        score2+=20
         gem1.y=0
         gem1.x= random.randint(0,800)
     if gem1.y>= 750:
         gem1.y=0
         gem1.x= random.randint(0,800)
         score2+= -20
+        score+= -20
 
     if ship.colliderect(gem2):
         score+=10
         gem2.y=0
         gem2.x= random.randint(0,800)
     if ship2.colliderect(gem2):
-        score+=10
+        score2+=10
         gem2.y=0
         gem2.x= random.randint(0,800)
     if gem2.y>= 750:
         gem2.y=0
         gem2.x= random.randint(0,800)
         score2+= -50
+        score+= -50
 
     if ship.colliderect(gem3):
         score+=50
@@ -88,12 +100,14 @@ def update():
         gem3.y=0
         gem3.x= random.randint(0,800)
         score+= -10
+        score2+= -10
     if ship2.colliderect(gem3):
         score2+=50
         gem3.y=0
         gem3.x= random.randint(0,800)
-    if gem3.y>= 750:
-        gem3.y=0
-        gem3.x= random.randint(0,800)
-        score+= -10
+    
+        
+    if random.randint(0,1000) = 1 :
+       speeditem.y = 700
+       speeditem.x = random.randint(0,800) 
 pgzrun.go()
