@@ -6,6 +6,8 @@ WIDTH = 800
 
 score2=0
 score=0
+speed= True
+speedtimer = 0
 ship = Actor("playership1_blue.png")
 ship.x = 50
 ship.y = 700
@@ -25,11 +27,12 @@ gem3 = Actor("gemyellow.png")
 gem3.x = random.randint(0 , 800)
 gem3.y = 0  
 
-speeditem = Actor("playership2_red")
+speeditem = Actor("speed.png.webp")
 speeditem.x = 1000
 speeditem.y = 1000
 
 def draw():
+    global speed
     screen.clear()
     global score
     global score2
@@ -39,22 +42,29 @@ def draw():
     gem3.draw()
     ship.draw()
     ship2.draw()
+    speeditem.draw()
     screen.draw.text(f'Score: {score}',(0,0), fontsize=40, color=(255,255,255))
     screen.draw.text(f'Score: {score2}',(650,0), fontsize=40, color=(200,255,255))
 
 def update():
     global score
     global score2
-    
+    global speed
+    global speedtimer
     gem1.y+= 4
     gem2.y+= 1
     gem3.y+= 6
-    if speed == true :
+    speeditem.y += 6
+    if speed == True :
         if keyboard.right:
             ship.x +=10
         if keyboard.left:
             ship.x +=-10
-    elif speed = false :
+        if speedtimer < 0 :
+            speedtimer =- 1
+        elif speedtimer == 0 :
+            speed = False
+    elif speed == False :
         if keyboard.right:
             ship.x +=5
         if keyboard.left:
@@ -107,7 +117,13 @@ def update():
         gem3.x= random.randint(0,800)
         score+= -10
         
-    if random.randint(0,1000) = 1 :
+    if random.randint(0,1000) == 1 :
        speeditem.y = 700
        speeditem.x = random.randint(0,800) 
+
+    if ship.colliderect(speeditem):
+        speed = True
+        speedtimer = 1000
+        speeditem.x = 1000
+        speeditem.y = 1000
 pgzrun.go()
