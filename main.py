@@ -35,8 +35,8 @@ def draw():
     gem3.draw()
     ship.draw()
     ship2.draw()
-    screen.draw.text(f'Score: {score}',(0,0), fontsize=40, color=(255,255,255))
-    screen.draw.text(f'Score: {score2}',(670,0), fontsize=40, color=(200,255,255))
+    screen.draw.text(f'Score: {score}',(0,0), fontsize=40, color=(0,169,224))
+    screen.draw.text(f'Score: {score2}',(670,0), fontsize=40, color=(255,0,0))
 
 def update():
     global score
