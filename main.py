@@ -79,26 +79,28 @@ def update():
         gem1.y=0
         gem1.x= random.randint(0,800)
     if ship2.colliderect(gem1):
-        score+=20
+        score2+=20
         gem1.y=0
         gem1.x= random.randint(0,800)
     if gem1.y>= 750:
         gem1.y=0
         gem1.x= random.randint(0,800)
         score2+= -20
+        score+= -20
 
     if ship.colliderect(gem2):
         score+=10
         gem2.y=0
         gem2.x= random.randint(0,800)
     if ship2.colliderect(gem2):
-        score+=10
+        score2+=10
         gem2.y=0
         gem2.x= random.randint(0,800)
     if gem2.y>= 750:
         gem2.y=0
         gem2.x= random.randint(0,800)
         score2+= -50
+        score+= -50
 
     if ship.colliderect(gem3):
         score+=50
@@ -108,14 +110,12 @@ def update():
         gem3.y=0
         gem3.x= random.randint(0,800)
         score+= -10
+        score2+= -10
     if ship2.colliderect(gem3):
         score2+=50
         gem3.y=0
         gem3.x= random.randint(0,800)
-    if gem3.y>= 750:
-        gem3.y=0
-        gem3.x= random.randint(0,800)
-        score+= -10
+    
         
     if random.randint(0,1000) == 1 :
        speeditem.y = 700
