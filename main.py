@@ -15,7 +15,7 @@ ship = Actor("playership1_blue.png")
 ship.x = 50
 ship.y = 700
 ship2 = Actor("playership1_red.png")
-ship2.x = 50
+ship2.x = 750
 ship2.y = 700
 
 gem1 = Actor("gemgreen.png")
