@@ -51,8 +51,12 @@ def draw():
     ship2.draw()
     speeditem.draw()
     screen.draw.text(f'Score: {score}',(0,0), fontsize=40, color=(0,169,224))
-    screen.draw.text(f'Score: {score2}',(670,0), fontsize=40, color=(255,0,0))
 
+    if score2 >= 1000 :
+        screen.draw.text(f'Score: {score2}',(620,0), fontsize=40, color=(255,0,0))
+    elif score2 >= 10000 :
+        screen.draw.text(f'Score: {score2}',(580,0), fontsize=40, color=(255,0,0))
+    else : screen.draw.text(f'Score: {score2}',(650,0), fontsize=40, color=(255,0,0))
 def update():
     global score
     global score2
@@ -125,7 +129,7 @@ def update():
         gem3.x= random.randint(0,800)
     
     if onscreen == False :
-        if random.randint(0,1000) == 1 :
+        if random.randint(0,500) == 1 :
             speeditem.y = 0
             speeditem.x = random.randint(0,800) 
             onscreen = True
