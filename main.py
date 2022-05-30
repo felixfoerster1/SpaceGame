@@ -34,11 +34,16 @@ speeditem = Actor("pill_red.png")
 speeditem.x = 10
 speeditem.y = 10
 
+galaxy = Actor("galaxy.png")
+galaxy.x = 500
+galaxy.y = 500
+
 def draw():
     screen.clear()
     global score
     global score2
     
+    galaxy.draw()
     gem1.draw()
     gem2.draw()
     gem3.draw()
