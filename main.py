@@ -51,9 +51,14 @@ def update():
     global score2
     global speed
     global speedtimer
-    gem1.y+= 4
-    gem2.y+= 1
-    gem3.y+= 6
+    if (score + score2) / 2 <= 0:
+        gem_multiplier = 1
+    else:
+        gem_multiplier = ((score + score2) / 2) ** 0.05
+
+    gem1.y+= 4 * gem_multiplier
+    gem2.y+= 1 * gem_multiplier
+    gem3.y+= 6 * gem_multiplier
     speeditem.y += 6
     if speed == True :
         if keyboard.right:
