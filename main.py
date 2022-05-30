@@ -151,5 +151,4 @@ def update():
     if speeditem.y == 700 :
         onscreen = False 
         speeditem.y = 1000
-    print(speedtimer,speedtimer2)
 pgzrun.go()
